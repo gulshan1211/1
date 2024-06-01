@@ -1,0 +1,58 @@
+{
+  "name": "chatbot-ui",
+  "displayName": "Chatbot UI",
+  "description": "Ui for the  chattbot",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.89.0"
+  } ,"activationEvents": [
+    "onView:my-chatbot",
+    "onView:my-chatbot-view"
+],
+"main": "./extension.js",
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "my-chatbot.openChatbot",
+        "title": "Open Chatbot"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "my-chatbot",
+          "title": "Chatbot",
+          "icon": "resources/chatbot.svg"
+        }
+      ]
+    },
+    "views": {
+      "my-chatbot": [
+        {
+          "id": "my-chatbot-view",
+          "name": "Chatbot",
+          "type": "webview"
+        }
+      ]
+    }
+  }
+,
+
+"scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "echo \"No compilation needed\"",
+    "watch": "echo \"No watch needed\"",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext js",
+    "test": "echo \"No tests specified\""
+},
+  "devDependencies": {
+      "@types/vscode": "^1.50.0",
+      "@typescript-eslint/eslint-plugin": "^4.0.1",
+      "@typescript-eslint/parser": "^4.0.1",
+      "eslint": "^7.0.0",
+      "typescript": "^4.0.0",
+      "vscode-test": "^1.0.0"
+  }
+}
